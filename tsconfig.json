@@ -4,10 +4,16 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/vinculo-e2e"
+      "path": "./apps/app-e2e"
     },
     {
-      "path": "./apps/vinculo"
+      "path": "./apps/app"
+    },
+    {
+      "path": "./apps/api-e2e"
+    },
+    {
+      "path": "./apps/api"
     }
   ]
 }

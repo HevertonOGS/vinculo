@@ -1,10 +1,10 @@
 {
-  "name": "@vinculo/vinculo-e2e",
+  "name": "@vinculo/app-e2e",
   "version": "0.0.1",
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "@vinculo/vinculo"
+      "@vinculo/app"
     ]
   }
 }
