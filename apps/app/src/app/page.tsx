@@ -4,13 +4,13 @@ import styles from './page.module.scss';
 import { useEffect, useState } from 'react';
 
 export default function Index() {
-  const [message, setMessage] = useState('Carregando...');
+  const [status, setStatus] = useState('Verificando...');
 
   useEffect(() => {
-    fetch('http://localhost:3333/api')
+    fetch('api/health')
       .then((response) => response.json())
-      .then((data) => setMessage(data.message))
-      .catch((error) => setMessage('Erro ao conectar com API'));
+      .then((data) => setStatus(data.status))
+      .catch((error) => setStatus('Erro ao conectar com API'));
   }, []);
 
   return (
@@ -22,7 +22,7 @@ export default function Index() {
               <h3 className={styles.subtitle}>Bem-vindo ao</h3>
               <h1 className={styles.title}>Vínculo App</h1>
             </div>
-            <div>{message}</div>
+            <div>{status}</div>
             <div className={styles.actions}>
               <button className={styles.button}>Iniciar jornada</button>
               <button className={styles.buttonSecondary}>

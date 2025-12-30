@@ -1,0 +1,21 @@
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_ENDPOINT;
+
+if (!API_BASE_URL) {
+  throw new Error('NEXT_PUBLIC_API_ENDPOINT is not defined.');
+}
+
+export async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
+    const response = await fetch(`${API_BASE_URL}${path}`, {
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...(options?.headers || {})
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    return response.json() as Promise<T>;
+}
